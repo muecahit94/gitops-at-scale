@@ -12,7 +12,7 @@ spec:
   source:
     repoURL: https://github.com/muecahit94/gitops-at-scale.git
     targetRevision: HEAD
-    path: ./app-of-apps
+    path: ./app-of-apps/my-app-list
    
   # Destination cluster and namespace to deploy the application
   destination:
