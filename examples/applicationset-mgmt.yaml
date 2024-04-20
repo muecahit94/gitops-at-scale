@@ -11,7 +11,7 @@ spec:
       repoURL: https://github.com/muecahit94/gitops-at-scale.git
       revision: HEAD
       directories:
-      - path: applicationset/directory/mgmt/*
+      - path: applicationset/directory-gen/mgmt/*
   template:
     metadata:
       name: '{{.path.basename}}'

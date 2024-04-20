@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: applicationset-mgmt
+  name: applicationset-mgmt-file-gen
   namespace: argocd
 spec:
   goTemplate: true
@@ -11,22 +11,22 @@ spec:
       repoURL: https://github.com/muecahit94/gitops-at-scale.git
       revision: HEAD
       files:
-      - path: applicationset/files/configs/*.json
+        - path: applicationset/file-gen/configs/*.json
   template:
     metadata:
-      name: '{{name}}'
+      name: '{{.name}}'
     spec:
       project: 'default'
       source:
         repoURL: https://github.com/muecahit94/gitops-at-scale.git
         targetRevision: HEAD
-        path: 'applicationset/files/deployments/{{name}}'
+        path: 'applicationset/file-gen/deployments/overlays/{{.name}}'
         kustomize:
           images:
-            - '{{image}}:{{tag}}'
+            - '{{.image}}:{{.tag}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{namespace}}'
+        namespace: '{{.namespace}}'
       syncPolicy:
         syncOptions:
           - CreateNamespace=true
