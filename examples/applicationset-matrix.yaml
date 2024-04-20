@@ -15,7 +15,7 @@ spec:
               repoURL: https://github.com/muecahit94/gitops-at-scale.git
               revision: HEAD
               directories:
-                - path: applicationset/stages/*
+                - path: applicationset/directory/stages/*
           # cluster generator, 'child' #2
           - clusters: {}
               # selector:

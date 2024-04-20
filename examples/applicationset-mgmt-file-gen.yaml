@@ -10,20 +10,23 @@ spec:
   - git:
       repoURL: https://github.com/muecahit94/gitops-at-scale.git
       revision: HEAD
-      directories:
-      - path: applicationset/directory/mgmt/*
+      files:
+      - path: applicationset/files/configs/*.json
   template:
     metadata:
-      name: '{{.path.basename}}'
+      name: '{{name}}'
     spec:
       project: 'default'
       source:
         repoURL: https://github.com/muecahit94/gitops-at-scale.git
         targetRevision: HEAD
-        path: '{{.path.path}}'
+        path: 'applicationset/files/deployments/{{name}}'
+        kustomize:
+          images:
+            - '{{image}}:{{tag}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{.path.basename}}'
+        namespace: '{{namespace}}'
       syncPolicy:
         syncOptions:
           - CreateNamespace=true

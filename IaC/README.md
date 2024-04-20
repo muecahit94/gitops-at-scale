@@ -76,7 +76,19 @@ Apply the Terraform execution
 terraform apply
 ```
 
-When the installation was successful, ArgoCD should be available with http://localhost:30080/ 
+After apply you need to set the variables
+
+Host IP-Adress: set your PC/Laptops IP address
+
+ArgoCD admin password, need to be bcrypt hashed: 
+```bash
+htpasswd -nbBC 10 "" $ARGO_PWD | tr -d ':\n' | sed 's/$2y/$2a/'
+```
+
+Stage Count: Number of stages/clusters that you want
+
+When the installation was successful, ArgoCD should be available with http://localhost:30080/, user: **admin**, password: $ARGO_PWD
+
 
 ## License
 

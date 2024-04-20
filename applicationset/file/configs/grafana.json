@@ -1,0 +1,6 @@
+{
+    "image": "nginx",
+    "tag": "stable-alpine",
+    "name": "grafana",
+    "namespace": "grafana"
+}

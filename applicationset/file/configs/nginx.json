@@ -1,0 +1,6 @@
+{
+    "image": "nginx",
+    "tag": "1",
+    "name": "nginx",
+    "namespace": "nginx"
+}
