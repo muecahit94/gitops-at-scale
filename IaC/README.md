@@ -76,9 +76,9 @@ Apply the Terraform execution
 terraform apply
 ```
 
-After apply you need to set the variables
+After apply you need to set three variables:
 
-Host IP-Adress: set your PC/Laptops IP address
+Host IP-Address: set your PC/Laptops IP-Address
 
 ArgoCD admin password, need to be bcrypt hashed: 
 ```bash
