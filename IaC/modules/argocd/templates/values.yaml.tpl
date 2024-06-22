@@ -245,7 +245,7 @@ configs:
   ## - https://argo-cd.readthedocs.io/en/stable/operator-manual/security/#external-cluster-credentials
   clusterCredentials:
 %{ for key, value in cluster_credentials ~}
-    - name: ${key}
+    ${key}:
       server: ${value.server}
       labels:
         domain: ${key}
